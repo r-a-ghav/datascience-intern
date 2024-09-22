@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSSL</title>
+    <style>
+        * {
+            font-family: "Roboto Mono", monospace;
+            font-size: 1.01em;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #8052ec, #d161ff);
+        }
+
+        .container {
+            width: 32em;
+            background-color: #ffffff;
+            padding: 5em;
+            border-radius: 0.6em;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 1em 2em rgba(0, 0, 0, 0.25);
+        }
+
+        .wrapper {
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            margin: 1em 0;
+        }
+
+        input[type="text"] {
+            /* font-family: "Roboto Mono", monospace;
+    font-size: 1.05em; */
+            width: 90%;
+            padding: 1em 0.7em;
+            border: 1px solid #000000;
+            border-radius: 0.3em;
+        }
+
+        button#submit-button {
+            width: 100%;
+            background-color: #8052ec;
+            color: #ffffff;
+            font-size: 1.3em;
+            border: none;
+            margin-top: 0.55em;
+            padding: 0.7em 0;
+            border-radius: 0.3em;
+            font-family: "Roboto Mono", monospace;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="/predict" method="post">
+            <label for="cylinders">Cylinders:</label>
+            <input type="text" id="cylinders" name="cylinders" required>
+            <br>
+            <label for="displacement">Displacement:</label>
+            <input type="text" id="displacement" name="displacement" required>
+            <br>
+            <label for="horsepower">Horsepower:</label>
+            <input type="text" id="horsepower" name="horsepower" required>
+            <br>
+            <label for="acceleration">Acceleration:</label>
+            <input type="text" id="acceleration" name="acceleration" required>
+            <br>
+            <label for="modelyear">Model Year:</label>
+            <input type="text" id="modelyear" name="modelyear" required>
+            <br>
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" required>
+            <br>
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" required>
+            <br>
+            <button type="submit" id="submit-button">Predict MPG</button>
+        </form>
+        {% if result %}
+        <p>{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
